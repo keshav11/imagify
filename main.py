@@ -12,12 +12,22 @@ def imagify(line):
     size = 50
     font = ImageFont.truetype("Arial/ariali.ttf", size)
     length = len(line)
+    print length
     charactersInALine = 38
     r = length/charactersInALine + 1
     margin = 50
     offset = 50
+    start = 0
     for i in range(0,r):
-        draw.text((margin, offset + 50*i), line[charactersInALine*i:charactersInALine*(i+1)], font=font, fill=(0,0,0,255))
+        end = charactersInALine*(i+1)
+        for j in range(end,length):
+            if line[end] == ' ':
+                break;
+            else:
+                end = end + 1
+        print start , ":" , end
+        draw.text((margin, offset + 50*i), line[start:end], font=font, fill=(0,0,0,255))
+        start = end
 
     img.save('test.png')
 
