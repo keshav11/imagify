@@ -2,4 +2,4 @@
 Converts text to image
 
 ## Usage
-python main.py "Text to imagify"
+python main.py "imagify"
